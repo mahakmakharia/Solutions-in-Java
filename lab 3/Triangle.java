@@ -18,26 +18,19 @@ class Triangle {
         return 0.5 * this.base * this.height;
     }
 
-    void showArea() {
+    void show() {
         System.out
                 .println("Height and Base of the triangle are " + this.height + " and " + this.base + " respectively");
         System.out.println("Area:" + this.getArea());
     }
 
-    static void compareAreas(Triangle t1, Triangle t2) {
+    static void compare(Triangle t1, Triangle t2) {
         if (t1.getArea() == t2.getArea())
             System.out.println("Triangles are equal");
         else if (t1.getArea() > t2.getArea())
             System.out.println("First triangle is larger");
         else
             System.out.println("Second triangle is larger");
-    }
-
-    void checkValidity() {
-        if (base <= 0 || height <= 0) {
-            System.out.println("Base/Height cannot be 0 or negative");
-            System.exit(0);
-        }
     }
 
     public static void main(String args[]) {
@@ -51,37 +44,34 @@ class Triangle {
                 System.out.println("Enter the dimensions for Triangle:");
                 b = sc.nextInt();
                 h = sc.nextInt();
-
+                checkValidity(b, h);
                 Triangle t = new Triangle(b, h);
-                t.checkValidity();
 
-                t.showArea();
+                t.show();
 
                 break;
             case 1:
                 System.out.println("Enter the dimensions for first triangle:");
                 b = sc.nextInt();
                 h = sc.nextInt();
-
+                checkValidity(b, h);
                 Triangle t1 = new Triangle(b, h);
-                t1.checkValidity();
 
                 System.out.println("Enter the dimensions for second triangle:");
                 b = sc.nextInt();
                 h = sc.nextInt();
-
+                checkValidity(b, h);
                 Triangle t2 = new Triangle(b, h);
-                t2.checkValidity();
 
                 System.out.println("1st triangle:");
-                t1.showArea();
+                t1.show();
                 System.out.println();
 
                 System.out.println("2nd triangle:");
-                t2.showArea();
+                t2.show();
                 System.out.println();
 
-                compareAreas(t1, t2);
+                compare(t1, t2);
 
                 break;
 
@@ -89,4 +79,12 @@ class Triangle {
                 System.out.println("Invalid Input");
         }
     }
+
+    public static void checkValidity(int base, int height) {
+        if (base <= 0 || height <= 0) {
+            System.out.println("Base/Height cannot be 0 or negative");
+            System.exit(0);
+        }
+    }
+
 }
