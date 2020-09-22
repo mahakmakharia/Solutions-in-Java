@@ -64,6 +64,7 @@ public class IFCSManager {
                     System.out.println("Invalid Choice");
             }
         }
+        scanner.close();
 
     }
 

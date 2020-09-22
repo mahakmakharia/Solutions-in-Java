@@ -78,6 +78,7 @@ class Triangle {
             default:
                 System.out.println("Invalid Input");
         }
+        scanner.close();
     }
 
     public static void checkValidity(int base, int height) {
